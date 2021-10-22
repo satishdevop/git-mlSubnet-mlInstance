@@ -1,14 +1,7 @@
-
-
-
-# variable "region" {
-#     default = "ap-south-1"
-# }
-
-variable "m_vpc_cidr" {
+variable "vpc_cidr" {
 default = "10.0.0.0/16"
 } 
-variable "m_public_subnet_cidr_blocks" {
+variable "public_subnet_cidr_blocks" {
   description = "Available cidr blocks for public subnets."
   type        = list(string)
   default     = [
@@ -19,18 +12,10 @@ variable "m_public_subnet_cidr_blocks" {
   ]
 }
 
-variable "m_private_subnet_cidr" {
+variable "private_subnet_cidr" {
     default = "10.0.10.0/24"
     }
 
-variable "m_env" {
-  default = "dev"
+variable "env" {
+    default = "dev"
 }
-
-variable "m_InstanceType" {
-  default = "t2.micro"
-}
-
-
-
-
