@@ -37,13 +37,13 @@ resource "aws_lb_target_group" "blue" {
     protocol = "HTTP"
     timeout  = 5
     interval = 10
-    path = "/test.txt"
+    path = "/test.html"
   }
 }
 
 resource "aws_lb_target_group_attachment" "blue" {
   #count            = length(aws_instance.blue)
-  count            = length(var.aws_inst)
+  count            = (length(var.aws_inst)+1)
   target_group_arn = aws_lb_target_group.blue.arn
   target_id        = data.aws_instances.bluein.ids[count.index]
   port             = 80
